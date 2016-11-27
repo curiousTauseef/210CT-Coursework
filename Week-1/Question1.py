@@ -51,7 +51,7 @@ def shuffleArray(arr):
                 
     except:
         print("Error: Please provide a valid array to shuffle and try again.")
-        return "Failed"
+        
 
 
 
@@ -65,7 +65,7 @@ if __name__ == "__main__":
     test6 = ["a","b","c","d","d","e","f"]
 
     tests = [test1, test2, test3, test4, test5, test6]
-    testresults = ["Failed","Failed","Failed","Failed",[],[]]
+    testresults = [None,None,None,None,[],[]]
     count = 0
     passed = 0
     failed = 0
