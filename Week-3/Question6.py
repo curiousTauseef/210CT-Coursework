@@ -1,3 +1,14 @@
+"""
+    210CT - Programming, Algorithms and Data Structures.
+    Question6.py
+    Purpose:  A function to reverse the words in a sentence.
+             
+    Author : Rithin Chalumuri
+    Version: 1.0 
+    Date   : 02/12/16
+    
+"""
+
 def revSentence(sentence):
     """
     A function which reverses the words in a sentence.
