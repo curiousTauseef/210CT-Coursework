@@ -22,7 +22,7 @@ def isPrime(number):
 
     Raises:
         TypeError: If user enters an invalid number such as floats.
-        Exception: If there is an unexpected error.
+        RuntimeError: If the number is too large to perform recursive calls.
     """
     
     try:
