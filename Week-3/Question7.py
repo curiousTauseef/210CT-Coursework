@@ -13,6 +13,7 @@
 def isPrime(number):
     """
     Function to check if a number is a prime number.
+    Max Number Possible: 996
 
     Parameters:
         number (int); the number which is to be checked if its a prime or not.
@@ -22,7 +23,7 @@ def isPrime(number):
 
     Raises:
         TypeError: If user enters an invalid number such as floats.
-        RuntimeError: If the number is too large to perform recursive calls.
+        RuntimeError: If the number is greater than 996. Too many recursive calls.
     """
     
     try:
@@ -50,6 +51,7 @@ def isPrime(number):
 def check(number,divisor):
     """
     Recursive Function to check if a number is divisible by all numbers below it.
+    Max Number Possible: 996
 
     Parameters:
         number (int); the number which is to be checked if its a prime or not.
@@ -83,10 +85,10 @@ if __name__ == "__main__":
     test7 = "99"
     test8 = [1,2]
     test9 = 17.00
-    test10 = 18.49
+    test10 = 996
     
     tests = [test1, test2, test3, test4, test5, test6,test7,test8,test9,test10]
-    testresults = [False,False,None,False,False,True,False,False,True,False]
+    testresults = [False,False,None,False,False,True,False,False,True,True]
     
     count = 0
     passed = 0
