@@ -88,7 +88,7 @@ if __name__ == "__main__":
     test10 = 996
     
     tests = [test1, test2, test3, test4, test5, test6,test7,test8,test9,test10]
-    testresults = [False,False,None,False,False,True,False,False,True,True]
+    testresults = [False,False,None,False,False,True,False,False,True,False]
     
     count = 0
     passed = 0
