@@ -53,7 +53,7 @@ def rangeBinarySearch( sequence, a, b ):
       
       mid = (start+end)//2 #pivot
       
-      if a <= sequence[mid] <= b : #if the value is in the range
+      if a <= sequence[mid] <= b : #if the middle value of sequence is in the range
         
         return True
       
