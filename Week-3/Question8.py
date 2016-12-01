@@ -83,7 +83,7 @@ if __name__ == "__main__":
 
         count = count + 1
         
-        print("-"*20)
+        print("-"*60)
 
     print("Total tests performed: "+str(count))
     print("Tests passed: "+str(passed))
