@@ -67,8 +67,45 @@ class Graph():
             if i != len(self.vertices)-1:
                 vertices += ", "
                 
-        print( vertices)
-        
+        print(vertices)
+
+
+    def djikstra(self, startNode):
+
+        distances = {}
+        previous = {}
+        q = queue.PriorityQueue()
+        start_weight = float("inf")
+
+        for vertex in self.vertices:
+            weight = start_weight
+            if vertex.value == start:
+                weight = 0
+            distances[vertex.value] = weight
+            previous[vertex.value] = None
+
+        q.put((0,start))
+
+        while not (q.empty()):
+
+            currentVertex = q.get()
+            currentVertex_data = currentVertex[1]
+            currentVertexIndex = self.indexof(currentVertex_data)
+
+            for edge in self.vertices[currentVertexIndex].connections:
+                currentVertexDistance = distance[currentVertex_data] + edge[1]
+
+                if currentVertexDistance < distances[edge[0]]:
+                    distances[edge[0]] = currentVertexDistance
+                    previous[edge[0]] = currentVertex_data
+                    q.put((distances[edge[0],edge[0])))
+
+        return distances, previous
+
+    def shortest_path
+
+
+
             
 def dj(graph, start, end):
 
