@@ -43,11 +43,11 @@ def shuffleArray(arr):
             while size > 0: #Loop finishes when all elements have been appended to shuffledArray
                 
                 randomIndex = random.randint(0,size-1) #Getting Random Index Number
-                shuffledArray.append(arr[randomIndex]) #Adding it to shuffledArray
+                shuffledArray.append(arr[randomIndex]) #Adding element with random Index to shuffledArray
                 del arr[randomIndex] #Removing it from 'arr'
                 size = size - 1
                 
-            return shuffledArray #after the loop finishes
+            return shuffledArray 
                 
     except:
         print("Error: Please provide a valid array to shuffle and try again.")
