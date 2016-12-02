@@ -59,13 +59,13 @@ def rangeBinarySearch( sequence, a, b ):
       
       elif b < sequence[mid]: #if upper limit is lesser than middle value
         
-        end = mid -1 #Eliminate the right side of the sequence
+        end = mid -1 
         
       else: # if upper limit is greater than middle value
         
-        start = mid +1 #Eliminate the left side of the sequence
+        start = mid +1 
   
-    return False # After loop finishes, if nothing is found then return False
+    return False 
 
   except TypeError: #If user provides unsupported types of input
     
