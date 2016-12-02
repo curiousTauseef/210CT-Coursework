@@ -8,8 +8,9 @@ Question 3 : Write a pseudocode for a function which returns the highest perfect
                      less or equal to its parameter( a positive integer).
 ==================================================================================================
 
+Input: postive number of type Integer
 
-HIGHEST-PERFECT-SQUARE( number )                          … (Run Time)
+HIGHEST-PERFECT-SQUARE( number )                                … (Run Time)
 	
 	sqrtN  <-  number^(1/2)                                 … (1)
 	
@@ -20,6 +21,7 @@ HIGHEST-PERFECT-SQUARE( number )                          … (Run Time)
 	return ans                                              … (1)
 
 
+==================================================================================================
 
-// Total Runtime =  1x4
-// Big O Notation = O(1)
+Total Runtime =  1x4
+Big O Notation = O(1)
