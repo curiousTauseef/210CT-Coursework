@@ -79,6 +79,11 @@ class Graph():
         return ""
 
     def dfs(self, v):
+
+        if not(self.contains(v)):
+            print("DFS Error: Vertex '"+str(v)+"' does not exist in '"+str(self.name)+"' graph. Please try again.")
+            return
+            
         
         stack = []
         visited = []
@@ -93,10 +98,15 @@ class Graph():
                 for edge in currentVertex.connections[::-1]:
                     stack.append(self.getVertex(edge))
                     
-        return visited
+        self.saveTraversal(visited,"bfs")
+        print("DFS Traversal Results starting at vertex '"+str(v)+"' of graph '"+str(self.name)+"' are saved to 'Traversal Results.txt' file.")
     
 
     def bfs(self, v):
+
+        if not(self.contains(v)):
+            print("BFS Error: Vertex '"+str(v)+"' does not exist in '"+str(self.name)+"' graph. Please try again.")
+            return
 
         queue = []
         visited = []
@@ -109,37 +119,39 @@ class Graph():
                 for edge in currentVertex.connections:
                     queue.insert(0,self.getVertex(edge))
                     
-        return visited
-                    
+        self.saveTraversal(visited,"bfs")
+        print("BFS Traversal Results starting at vertex '"+str(v)+"' of graph '"+str(self.name)+"' are saved to 'Traversal Results.txt' file.")
     
-    
-def saveTraversal(graphname,arr,traversal):
-    try:
-        file = open("Traversal Results.txt","r")
+
+    def saveTraversal(self,arr,traversal):
+        try:
+            file = open("Traversal Results.txt","r")
+            file.close()
+        except FileNotFoundError:
+            file = open("Traversal Results.txt","w")
+            file.close
+
+        if traversal == "dfs":
+            title = "Depth first search starting at vertex '"+str(arr[0])+"' of graph '"+str(self.name) + "' :"
+        else:
+            title = "Breadth first search starting at vertex '"+str(arr[0])+"' of graph '"+str(self.name) + "' :"
+
+        file = open("Traversal Results.txt","a")
+
+        resultsString = ""
+        for i in range(len(arr)):
+            resultsString += str(arr[i])
+            if i != len(arr) - 1:
+                resultsString += ", "
+
+        file.write(title)
+        file.write("\n")
+        file.write(resultsString)
+        file.write("\n \n")
         file.close()
-    except FileNotFoundError:
-        file = open("Traversal Results.txt","w")
-        file.close
         
-    if traversal == "dfs":
-        title = "Depth first search of graph '"+str(graphname) + "', Starting at vertex '"+str(arr[0])+"' :"
-    else:
-        title = "Breadth first search of graph '"+str(graphname) + "', Starting at vertex '"+str(arr[0])+"' :"
+                    
 
-    file = open("Traversal Results.txt","a")
-
-    resultsString = ""
-    for i in range(len(arr)):
-        resultsString += str(arr[i])
-        if i != len(arr) - 1:
-            resultsString += ", "
-
-    file.write(title)
-    file.write("\n")
-    file.write(resultsString)
-    file.write("\n")
-    file.close()
-   
     
 testg = Graph("Test Graph")
 test2 = Graph("N")
@@ -154,8 +166,10 @@ testg.addEdge("E","C")
 testg.addEdge("F","C")
 testg.addEdge("C","D")
 
-print(testg.dfs("A"))
-print(testg.bfs("A"))
+testg.dfs("I")
+testg.bfs("A")
+testg.bfs("C")
+
 
 testg.printGraph()
 testg.printVertices()
@@ -170,5 +184,5 @@ test2.addEdge("F","D")
 test2.addEdge("F","C")
 test2.addEdge("C","H")
 
-print(test2.dfs("A"))
-print(test2.bfs("A"))
+test2.dfs("A")
+test2.bfs("A")
