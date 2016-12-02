@@ -10,28 +10,29 @@ Question 3 : Write a pseudocode for a recursive function to check if a number n 
 
 CHECK(number,divisor)                                                 ... (Running Time)
 
-	if divisor = 1     // base case                                   ... (1)
+	if divisor = 1     // base case                               ... (1)
 	
-		return True		                                              ... (1)
+		return True		                              ... (1)
 	
-	else if number % divisor = 0                                      ... (1)
+	else if number % divisor = 0                                  ... (1)
 	
-		return False                                                  ... (1)
+		return False                                          ... (1)
 	
-	else                                                              ... (1)
+	else                                                          ... (1)
 	
-		return CHECK(number,divisor - 1)                              ... (n)
+		return CHECK(number,divisor - 1)                      ... (n)
 	
 
 IS-PRIME(number)
 
-	if number < 2                                                    ... (1)
+	if number < 2                                                 ... (1)
 	
-		return False                                                 ... (1)
+		return False                                          ... (1)
 		
-	else                                                             ... (1)
+	else                                                          ... (1)
 	
-		return CHECK(number,number-1)                                ... (1)
+		return CHECK(number,number-1)                         ... (1)
 
 
 ==================================================================================================
+
