@@ -8,8 +8,97 @@ Question 13 : Write the pseudocode for an unweighted graph data structure.
 ==================================================================================================
 
 CLASS VERTEX
-     val <- value
-     edges <- []
+	
+	value <- value
+	
+	connections <- []
      
-     ADDEDGE()
-         adadadu
+     CONNECT(self,connection)
+	
+		if connection in self.connections
+		
+			pass 
+	
+		else
+	
+			add connection to self.connections
+		
+			sort self.connections in ascending order
+		
+
+CLASS GRAPH
+
+	vertices <- []  // Stores list of vertex objects
+	
+	name <- name
+	
+	ADD-VERTEX(self, value)
+	
+		add VERTEX(value) to self.vertices
+		
+	INDEXOF(self, value)  
+	
+	// returns index of a vertex with 'value' in vertices list
+	
+		index <- 0
+		
+		for vertex in self.vertices
+		
+			if vertex.value = value
+				
+				return index
+			
+			index <- index + 1
+			
+			
+	CONTAINS(self, value)
+	
+	// returns True if a vertex with 'vale' exists in graph
+	
+		for vertex in self.vertices
+	
+			if vertex.value = value
+		
+				return TRUE
+			
+		RETURN FALSE
+		
+	ADD-EDGE(self, u, v)
+	
+		if u not in self.vertices
+		
+			self.ADD-VERTEX(u)
+			
+		if v not in self.vertices
+			
+			self.ADD_VERTEX(v)
+		
+		self.vertices[u].CONNECT(v) // Adding v to connections of u
+		
+		self.vertices[v].CONNECT(u) // Adding u to connections of v
+		
+	
+	PRINT-GRAPH(self)
+	
+		for vertex in self.vertices
+		
+			print vertex.value , vertex.connections
+		
+		
+		
+			
+		
+	
+		
+		
+		
+
+	
+	
+	
+	
+	
+     
+     	
+     
+         
