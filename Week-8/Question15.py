@@ -278,6 +278,19 @@ if __name__ == "__main__":
     graph2.addEdge("A","C",11)
     graph1.addEdge("A","D",5)
     graph1.addEdge("B","F",2)
+    graph1.addEdge("C","E",1)
     graph1.addEdge("D","E",5)
+    graph1.addEdge("D","G",6)
     graph1.addEdge("D","F",4)
+    graph1.addEdge("G","H",6)
+    graph1.addEdge("H","J",8)
+    graph1.addEdge("I","H",9)
+    graph1.addEdge("I","K",12)
+    graph1.addEdge("F","I",3)
+    
+    path, distance = graph1.shortest_path("A","K")
+    
+    print(path,distances)
+    
+    
     
