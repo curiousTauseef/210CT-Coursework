@@ -32,21 +32,21 @@ def maxSeq(arr):
         if not(isinstance(arr,list)): #Checking if sequence is invalid or not
             raise TypeError
 
-        maximumSeq = [] # stores the sub-sequence of maximum length
-        tempSeq = [] #temporary sequence
+        maximumSeq = [] 
+        tempSeq = [] 
 
         if len(arr) == 0 or len(arr) == 1: #if user provides empty or 1 element sequences
             return arr
 
         for i in range(len(arr)-1):
             
-            tempSeq.append(arr[i]) #add each element in temporary sequence
+            tempSeq.append(arr[i]) #add each element to temporary sequence
             
             if arr[i+1]<arr[i]: #When the sequence breaks
                 
-                if len(maximumSeq) < len(tempSeq): #if temporary sequence has more elements than maximum sequence
+                if len(maximumSeq) < len(tempSeq): 
                     
-                    maximumSeq = tempSeq #Make temporary sequence the current maximum sequence
+                    maximumSeq = tempSeq 
                     
                 tempSeq = [] #Reset the temporary sequence 
                 
