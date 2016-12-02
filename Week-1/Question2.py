@@ -44,7 +44,7 @@ def factorialTrailingZeros(n):
             ans = ans // 10
     	
     	
-        return trailingZeros #When both the while loops finish
+        return trailingZeros 
 
     except:
         print("Error: Invalid input. Please try again with a positive integer only.")
