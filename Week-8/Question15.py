@@ -89,6 +89,10 @@ class Graph():
         
         Parameters:
         value (any data type); the value for which you want the index.
+        
+        Returns:
+        index (int); the index of the value looking for in vertices list
+        None; if a vertex with the value doesnt exist in the graph.
         """
         
         index = 0
@@ -112,7 +116,7 @@ class Graph():
         weight (int): the weight of the edge. By default it is 0.
         """
         
-        if not(isinstance(weight,int): #Checking if entered weight is an int
+        if not(isinstance(weight,int)): #Checking if entered weight is an int
                print("Error: The weight of an edge has to be an integer. Please try again.")
                return
         
@@ -144,71 +148,122 @@ class Graph():
             
                
     def printVertices(self):
+        """
+        Function to print a list of all vertices in graph
+        seperated by a comma.
+        """
         
-
         vertices = "Vertices in Graph '" + str(self.name) + "' : "
 
         for i in range(len(self.vertices)):
-            vertices += str(self.vertices[i].value)
-            if i != len(self.vertices)-1:
+            
+            vertices += str(self.vertices[i].value) #Add the value to vertices string
+            
+            if i != len(self.vertices)-1: # If it is last vertex the no need of comma
+                
                 vertices += ", "
                 
         print(vertices)
 
 
-    def djikstra(self, startNode):
-
+    def djikstra(self, startVertex):
+        """
+        Function to perform djikstra's algorithm on graph.
+        Getting the shortest distances from a vertex to all other vertices.
+        
+        Parameters:
+        startVertex (any data type); The starting vertex from which the shortest distances
+                                   to all other vertices is to be calculated.
+        
+        Returns:
+        distances (dictionary); the keys are the names of all vertices and its value is
+                                the shortest distance from starting vertex to them.
+        previous (dictionary); the key are the names of all vertices and its values is the
+                               name of the previous vertex required to get to them.
+        """
+        
         distances = {}
         previous = {}
-        q = queue.PriorityQueue()
-        start_weight = float("inf")
+        Queue = queue.PriorityQueue()
+        infinity = float("inf")
 
-        #Initialization
+        #Initialization, setting starting vertex to 0 and the rest to infinity
 
         for vertex in self.vertices:
-            weight = start_weight
-            if vertex.value == startNode:
+            
+            weight = infinity
+            
+            if vertex.value == startVertex:
+                
                 weight = 0
+                
             distances[vertex.value] = weight
+            
             previous[vertex.value] = None
 
-        q.put((0,startNode))
+        Queue.put((0,startVertex)) # Adding the starting vertex with priority number 0 in tuple to queue
 
-        while not (q.empty()):
+        while not (Queue.empty()):
 
-            currentVertex = q.get()
-            currentVertex_data = currentVertex[1]
+            currentVertex = Queue.get() # Getting element with least weight
+            
+            currentVertex_data = currentVertex[1] #second item in tuple is the value of vertex
+            
             currentVertexIndex = self.indexof(currentVertex_data)
 
             #relaxation step
 
-            for edge in self.vertices[currentVertexIndex].connections:
-                currentVertexDistance = distances[currentVertex_data] + edge[1]
+            for edge in self.vertices[currentVertexIndex].connections: 
+                
+                #edge[0] is the value of the vertex connected to
+                #edge[1] is the weight of the edge
+                
+                currentVertexDistance = distances[currentVertex_data] + edge[1] #tentative weight
 
                 if currentVertexDistance < distances[edge[0]]:
-                    distances[edge[0]] = currentVertexDistance
-                    previous[edge[0]] = currentVertex_data
-                    q.put((distances[edge[0]],edge[0]))
+                    
+                    distances[edge[0]] = currentVertexDistance #Update the distance to get the vertex
+                    
+                    previous[edge[0]] = currentVertex_data #Save current vertex as last visited vertex
+                    
+                    Queue.put((distances[edge[0]],edge[0])) 
 
         return distances, previous
 
 
     def shortest_path(self, start, end):
-
-        if not(self.contains(start)):
+        """
+        Function which uses djikstra algorithm to return the shortest path
+        and distance from two vertices in graph.
+        
+        Parameters:
+        start (any data type); the starting vertex
+        end (any data type); the destination vertex
+        
+        Returns;
+        shortestPath(list); the list of the shortest path from start to end vertices
+        distance(int); the shortest distance to get till there.
+        """
+        
+        #Checking if the start and end vertices exist in graph
+        
+        if not(self.contains(start)): 
             print("Error: Vertex '"+str(start)+"' does not exist in the graph '"+str(self.name)+"'. Please try again")
             return
         elif not(self.contains(end)):
             print("Error: Vertex '"+str(end)+"' does not exist in the graph '"+str(self.name)+"'. Please try again")
             return
-
+        
         distances, previous = self.djikstra(start)
         
         shortestPath = []
+        
         final = end
 
         while final is not None:
+            
             shortestPath.insert(0,final)
+            
             final = previous[final]
 
         return shortestPath, distances[end]
