@@ -17,7 +17,7 @@ CLASS VERTEX
 	
 		if connection in self.connections
 		
-			pass 
+			pass // Avoiding duplicate connections
 	
 		else
 	
