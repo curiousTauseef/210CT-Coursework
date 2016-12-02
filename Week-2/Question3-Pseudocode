@@ -5,7 +5,7 @@ Student Name: Rithin Chalumuri
 Student ID: 7030330
 
 Question 3 : Write a pseudocode for a function which returns the highest perfect square which is 
-                     less or equal to its parameter( a positive integer).
+             less or equal to its parameter( a positive integer).
 ==================================================================================================
 
 Input: postive number of type Integer
