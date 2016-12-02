@@ -78,7 +78,6 @@ FACTORIAL-TRAILING-ZEROS(n)                                                     
 // Big O Notation = O(n)
 // Where n is the number passed for factorial trailing zero calculation.
 	
-	
 
 	
 
