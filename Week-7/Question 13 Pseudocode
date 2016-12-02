@@ -13,7 +13,7 @@ CLASS VERTEX
 	
 	connections <- []
      
-     CONNECT(self,connection)
+     	CONNECT(self,connection)
 	
 		if connection in self.connections
 		
