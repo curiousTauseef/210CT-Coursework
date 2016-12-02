@@ -1,15 +1,15 @@
-=================================================================================================
+===================================================================================================
 210CT - Programming, Algorithms and Data Structures
 
 Student Name: Rithin Chalumuri
 Student ID: 7030330
 
 Question 4 : Describe the run-time bounds of Week 1 - Question 1 and 2 using Big O Notation.
-==================================================================================================
+====================================================================================================
 
 // Week 1 - Question 1
 
-SHUFFLE-ARRAY(arr)                                                              ... (Runtime)
+SHUFFLE-ARRAY(arr)                                                                  ... (Runtime)
 
 	size <- arr.length                                                          ... (1)
 	
@@ -17,30 +17,70 @@ SHUFFLE-ARRAY(arr)                                                              
 	
 	if size = 0                                                                 ... (1)
 	
-		return arr                                                              ... (1)
+		return arr                                                          ... (1)
 		
 	if size = 1                                                                 ... (1)
 	
-		return arr                                                              ... (1)
+		return arr                                                          ... (1)
 	
 	else                                                                        ... (1)
 	
-		while size > 0                                                          ... (n)
+		while size > 0                                                      ... (n)
 		 
-			randomIndex <- random number between 1 and size - 1                 ... (n)
+			randomIndex <- random number between 1 and size - 1         ... (n)
 			
-			add arr[randomIndex] to shuffledArr                                 ... (n)
+			add arr[randomIndex] to shuffledArr                         ... (n)
 			
-			delete arr[randomIndex] from arr                                    ... (n)
+			delete arr[randomIndex] from arr                            ... (n)
 			
-			size <- size - 1                                                    ... (n)
+			size <- size - 1                                            ... (n)
 			
-		return shuffledArr                                                      ... (1)
+		return shuffledArr                                                  ... (1)
 		
 
 // Total Runtime = 5n + 8
 // Big O Notation = O(n)
 // Where n is the size of the array passed to shuffle
+
+====================================================================================================
+
+// Week 1 - Question 2
+
+FACTORIAL-TRAILING-ZEROS(n)                                                         ... (Runtime)
+
+	ans <- 1                                                                    ... (1)
+	
+	trailingZeros <- 0                                                          ... (1)
+	
+	// Calculating factorial of n
+	
+	while n >= 1                                                                ... (n)
+		
+		ans <- ans * n                                                      ... (n)
+		
+		n <- n - 1                                                          ... (n)
+	
+	// Calculating the number of 0s in ans
+	
+	while ans % 10 = 0                                                          ... (n?)
+	
+		trailingZeros <- trailingZeros + 1                                  ... (n?)
+		
+		ans <- floor (ans/10)                                               ... (n?)
+		
+	return trailingZeros                                                        ... (1)
+	
+	
+// Total Runtime = 1 + 1 + n + n + n + mn + mn + mn + 1
+// The runtime for while loop to calculate the number of 0s in ans varies
+// because its not sure how many zeros are present for each ans. Lets assume it as n times.
+// Total runtime now becomes : 6n + 3
+// Big O Notation = O(n)
+// Where n is the number passed for factorial trailing zero calculation.
+	
+	
+
+	
 
 
 
