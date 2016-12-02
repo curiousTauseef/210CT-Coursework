@@ -1,6 +1,25 @@
+"""
+    210CT - Programming, Algorithms and Data Structures.
+    Question11.py
+    Purpose:  Implement the double linked list node delete function.
+             
+    Author : Rithin Chalumuri
+    Version: 1.0 
+    Date   : 02/12/16
+    
+"""
+
+
 class Node():
 
     def __init__(self,value):
+        """
+        Initialize the Node object.
+        value is the value to be assigned this node.
+        next stores the node object after this node.
+        prev stores the node object before this node.
+        """
+        
         self.value = value
         self.next = None
         self.prev = None
@@ -8,11 +27,23 @@ class Node():
 class doubleLinkedList():
     
     def __init__(self):
+        """
+        Initialize the Double Linked List object.
+        head stores the first node object in the list.
+        tail stores the last node object in the list.
+        """
         self.head = None
         self.tail = None
 
     def insert(self,node,data):
-
+        """
+        Function to add a new node object with data into linked list.
+        
+        Parameters:
+        node (Node) ; the node you want to insert a new node after.
+        data (any data type); the data with which a new node object will be created
+        """
+            
         insertingNode = Node(data)
 
         if node != None: #If it is not the first element
@@ -30,12 +61,18 @@ class doubleLinkedList():
             
             insertingNode.prev = insertingNode.next = None 
 
-        elif self.tail == node:
+        elif self.tail == node: #If node is the last object
             
             self.tail = insertingNode
             
 
     def getNode(self,data):
+        """
+        Function which searchs linked list and returns a node object which contains 'data'
+        
+        Parameters:
+        data (any data type); the data of a node looking for
+        """
         
         currentNode = self.head
         
@@ -49,7 +86,7 @@ class doubleLinkedList():
             
                 currentNode = currentNode.next
                 
-            if currentNode.value == data:
+            if currentNode.value == data: #In case, currentNode is or first element last element in list
                 
                     return currentNode
                 
@@ -57,10 +94,17 @@ class doubleLinkedList():
                 
     
     def remove(self, data):
+        
+        """
+        Function which removes a node with 'data' in linked list.
+        
+        Parameters:
+        data (any data type); the data of a node to be removed.
+        """
 
         deletingNode = self.getNode(data)
 
-        if deletingNode == None:
+        if deletingNode == None: # If node to delete does not exist
             print(str(data) + " is not deleted because it does not exist in the list.")
             return
 
@@ -68,7 +112,7 @@ class doubleLinkedList():
             
             deletingNode.prev.next = deletingNode.next
             
-        else: #If deletingNode is  the lfirst element in list
+        else: #If deletingNode is  the first element in list
             
             self.head = deletingNode.next
 
@@ -81,6 +125,9 @@ class doubleLinkedList():
 
 
     def display(self):
+        """
+        Function to print all the elements in linked list.
+        """
         values = []
         node = self.head
         while node != None:
@@ -89,15 +136,15 @@ class doubleLinkedList():
         print("List: ",",".join(values))
 
 
-
-l = doubleLinkedList()
-l.insert(None, 4)
-l.insert(l.head,6)
-l.insert(l.head,8)
-
-l.insert(l.head,9)
-l.insert(l.head,9)
-l.remove(10)
-l.display()
-l.remove(9)
-l.display()
+if __name__ == "__main__":
+    
+    l = doubleLinkedList()
+    l.insert(None, 4)
+    l.insert(l.head,6)
+    l.insert(l.head,8)
+    l.insert(l.head,9)
+    l.insert(l.head,9)
+    l.remove(10)
+    l.display()
+    l.remove(9)
+    l.display()
