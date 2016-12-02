@@ -29,8 +29,8 @@ def highestPerfectSquare(n):
     """
     try:
         
-        nearestInt = int(n**0.5) #Calculating sqaure root of n to get the nearest integer number possible for a perfect square
-        ans = (nearestInt) ** 2  #Simply squaring the nearestInt, which is the highest perfect square less than or equal to n.
+        nearestInt = int(n**0.5) #Calculating sqaure root of n
+        ans = (nearestInt) ** 2  #Simply squaring the nearestInt
         return ans
     
     except:
