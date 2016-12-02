@@ -34,10 +34,9 @@ class Vertex(object):
         """
         
         if connection in self.connections: # To avoid duplicate values
-            
             pass 
         
-        else:
+        else: # If its not a repeating value then add to connections
             
             self.connections.append([connection,weight])
             self.connections = sorted(self.connections)
@@ -45,53 +44,107 @@ class Vertex(object):
 class Graph():
 
     def __init__(self,name):
+        """
+        Initialize the Graph object.
+        name is the name of the graph.
+        vertices is the list of all vertex objects in this graph.
+        """
         
         self.vertices = []
         self.name= name
 
     def addVertex(self,value):
+        """
+        Function to add a new vertex object with value into list of vertices in graph.
         
-        self.vertices.append(Vertex(value))
+        Parameters:
+        value (any data type); the value with which a vertex object will be created
+        """
+        
+        self.vertices.append(Vertex(value)) 
 
     def contains(self,value):
+        """ 
+        Function to check if a particular vertex is in the graph.
+        
+        Parameters:
+        value (any data type); the value to look for in the graph.
+        
+        Returns:
+        A boolean; True if a vertex with 'value' exists, else false.
+        """
+        
         for vertex in self.vertices:
+            
             if vertex.value == value:
+                
                 return True
             
         return False
             
     def indexof(self, value):
+        """
+        Function to return the index of a particular value in list of 
+        vertex objects in the graph.
+        
+        Parameters:
+        value (any data type); the value for which you want the index.
+        """
+        
         index = 0
+        
         for vertex in self.vertices:
+            
             if vertex.value == value:
+                
                 return index
+            
             index += 1
             
 
     def addEdge(self,u,v,weight=0):
+        """
+        Function to add an edge with a weight between two vertrices.
         
-        if not self.contains(u):
+        Parameters:
+        u (any data type): the value of first vertex to connect
+        v (any data type): the value of second vertex to connect
+        weight (int): the weight of the edge. By default it is 0.
+        """
+        
+        if not(isinstance(weight,int): #Checking if entered weight is an int
+               print("Error: The weight of an edge has to be an integer. Please try again.")
+               return
+        
+        if not self.contains(u): #If the first vertex u doesnt exist in graph
             self.addVertex(u)
             
-        if not self.contains(v):
+        if not self.contains(v): #If second vertex v doesnt exist in graph
             self.addVertex(v)
         
         uIndex = self.indexof(u)
         vIndex = self.indexof(v)
         
-        self.vertices[uIndex].connect(v,weight)
-        self.vertices[vIndex].connect(u,weight)
+        self.vertices[uIndex].connect(v,weight) # Adding v to connections list of vertex u
+        self.vertices[vIndex].connect(u,weight) # Adding u to connections list of vertex v
 
 
     def printGraph(self):
+        """
+        Function to print the vertices and its weights edges.
+        Each edge is a list with two values; [vertex value, weight]
+        Adjacency list of each vertex is is a list of edges associated with it.
+        """
         print("Vertex" + "|".center(3) + "Adjacency List")
         print("-"*7 + "|" + "-"*18)
+               
         for vertex in self.vertices:
+            
             print(str(vertex.value) + " "*5 + "|".center(3) + str(vertex.connections))
             
-        
-
+               
     def printVertices(self):
+        
 
         vertices = "Vertices in Graph '" + str(self.name) + "' : "
 
