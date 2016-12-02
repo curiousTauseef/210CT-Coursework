@@ -17,15 +17,15 @@ REV-SENTENCE(sentence)                                                   ... (Ru
 	
 	if words.length = 1                                                  ... (1)
 		
-		return sentence                                                  ... (1)
+		return sentence                                              ... (1)
 	
 	for i <- words.length Downto 0                                       ... (n)
 		
-		reversedSentence <- reversedSentence + words[i]                  ... (n)
+		reversedSentence <- reversedSentence + words[i]              ... (n)
 		
-		if i ≠ 0                                                         ... (n)
+		if i ≠ 0                                                     ... (n)
 			
-			reversedSentence <- reversedSentence + " "                   ... (n-1)
+			reversedSentence <- reversedSentence + " "           ... (n-1)
 	
 	return reversedSentence                                              ... (1)
 	
