@@ -291,7 +291,7 @@ if __name__ == "__main__":
     graph1 = Graph("Graph 1")
     
     graph1.addEdge("A","B")
-    graph2.addEdge("A","C")
+    graph1.addEdge("A","C")
     graph1.addEdge("A","D")
     graph1.addEdge("B","F")
     graph1.addEdge("C","E")
