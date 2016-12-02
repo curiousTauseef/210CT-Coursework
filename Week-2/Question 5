@@ -1,4 +1,4 @@
-=================================================================================================
+=============================================================================================================
 210CT - Programming, Algorithms and Data Structures
 
 Student Name: Rithin Chalumuri
@@ -8,5 +8,107 @@ Question 5 : Write the pseudocode corresponding to functions for addition, subtr
              multiplication  of two matrices and then compute A=B*C –2*(B+C), where B and C 
              are two quadratic matrices of order n. What is the run-time?
 
-==================================================================================================
+==============================================================================================================
+
+ADD-MATRIX(matrix1,matrix2)
+	
+	if matrix1 row length != matrix2 row length                                                      ... (1)
+		
+		//Matrix addition not possible
+		
+		return                                                                                       ... (1)
+	
+	resultingMatrix <- NULL Matrix with dimensions of matrix1 or matrix 2                            ... (1)
+	
+	for i <- 1 to matrix1 row length                                                                 ... (n)
+	
+		for j <- 1 to matrix1 column length                                                          ... (n*n)
+		
+			resultingMatrix[i][j] <- matrix1[i][j] + matrix2[i][j]                                   ... (n*n)
+			
+	return resultingMatrix                                                                           ... (1)
+
+
+// ADD-MATRIX Total Runtime = 2n^2 + n + 4
+// ADD-MATRIX Big O Notation = O(n^2)
+
+
+SUBTRACT-MATRIX(matrix1,matrix2)
+	
+	if matrix1 row length != matrix2 row length                                                       ... (1)
+		
+		//Matrix subtraction not possible
+		
+		return                                                                                        ... (1)
+	
+	resultingMatrix <- NULL Matrix with dimensions of matrix1 or matrix 2                             ... (1)
+	
+	for i <- 1 to matrix1 row length                                                                  ... (n)
+	
+		for j <- 1 to matrix1 column length                                                           ... (n*n)
+		
+			resultingMatrix[i][j] <- matrix1[i][j] - matrix2[i][j]                                    ... (n*n)
+			
+	return resultingMatrix                                                                            ... (1) 
+
+
+// SUBTRACT-MATRIX Total Runtime = 2n^2 + n + 4
+// SUBTRACT-MATRIX Big O Notation = O(n^2)
+
+
+SCALAR-MULTIPLY(matrix, scalar)
+	
+	resultingMatrix <- NULL Matrix with dimensions of matrix                                          ... (1)
+	
+	for i <- 1 to matrix row length                                                                   ... (n)
+		
+		for j <- 1 to matrix column length                                                            ... (n*n)
+		 
+			resultingMatrix[i][j] <- scalar * matrix[i][j]                                            ... (n*n)
+			
+	return resultingMatrix                                                                            ... (1)
+	
+
+// SCALAR-MULTIPLY Total Runtime = 2n^2 + n + 2
+// SCALAR-MULTIPLY Big O Notation = O(n^2)
+
+
+MULTIPLY-MATRIX(matrix1, matrix2)
+	
+	if matrix1 column length != matrix2 row length                                                    ... (1)
+	
+		// Matrix Multiplication Not possible
+		
+		return                                                                                        ... (1)
+		
+	resultingMatrix <- NULL Matrix of dimensions matrix1 row length by matrix2 column length  		  ... (1)
+	
+	for i <- 1 to matrix1 row length                                                                  ... (n)
+	
+		for j <- 1 to matrix2 column length                                                           ... (n*n)
+		
+			for k <- 1 to matrix1 column length                                                       ... (n*n*n)
+			
+				resultingMatrix[i][j] <- resultingMatrix[i][j] + ( matrix1[i][k] * matrix2[k][j] )    ... (n*n*n)
+				
+	return resultingMatrix                                                                            ... (1)
+
+
+// MULTIPLY-MATRIX Total Runtime = 2n^3 + n^2 + n + 4
+// MULTIPLY-MATRIX Big O Notation = O(n^3)
+
+==============================================================================================================
+// Computing A = B*C –2*(B+C) 
+
+part1 = 
+	
+	
+
+
+
+
+	
+
+
+
 
