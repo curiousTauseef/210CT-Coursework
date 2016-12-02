@@ -26,7 +26,7 @@ class doubleLinkedList():
 
         if self.head == None: #If it is an empty list
             
-            self.head = self.tail = insertingNode #Set inserting node as head and tail of list
+            self.head = self.tail = insertingNode 
             
             insertingNode.prev = insertingNode.next = None 
 
@@ -40,10 +40,6 @@ class doubleLinkedList():
         currentNode = self.head
         
         if currentNode != None:
-            
-            if currentNode.value == data:
-                
-                    return currentNode
                 
             while currentNode.next != None:
                 
@@ -52,6 +48,10 @@ class doubleLinkedList():
                     return currentNode
             
                 currentNode = currentNode.next
+                
+            if currentNode.value == data:
+                
+                    return currentNode
                 
         return None
                 
