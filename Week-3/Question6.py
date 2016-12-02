@@ -27,23 +27,23 @@ def revSentence(sentence):
         
         reversedSentence = ""
     
-        words = sentence.split(" ")                            # Getting a list of words in the sentence
+        words = sentence.split(" ") # Getting a list of words in the sentence
 
         if len(words) == 1:
             return sentence
     
-        for i in range(len(words)-1,-1,-1):                    # For loop which counts backwards from number of words - 1 till 0.
+        for i in range(len(words)-1,-1,-1): # For loop which counts backwards from number of words - 1 till 0.
             
-            reversedSentence = reversedSentence + words[i]     # Adding words backwards to form a new string (reversed sentence)
+            reversedSentence = reversedSentence + words[i]     
         
-            if i != 0:                                         # Adding spaces between words while it is not the last word
+            if i != 0: # Adding spaces between words while it is not the last word
                 
                 reversedSentence += " "
 			
-        return reversedSentence                                # After the for loop finishes
+        return reversedSentence                                
 
     except:
-        print("Error in reversing sentence. Please try again with a sentence of type 'string' in which the words are seperated with spaces.")
+        print("Error in reversing sentence : Please try again with a sentence of type 'string' in which the words are seperated with spaces.")
 
 
 # Testing of revSentence Function
