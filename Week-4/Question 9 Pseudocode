@@ -40,4 +40,31 @@ Big O Notation = O(log n)
 Worst Case = O(log n) // If element is not present in sequence
 Average Case = O(log n) // If element is present somewhere in sequence
 Best Case = O(1) // If element is present in the middle of the sequence
+
+This function is dividing the sequence 'n' number of times into halfs until it is 1.
+
+Mathematically we can represent this as:
+
+1 = len(sequence) / (2*n)
+
+Bringing (2*n) to the RHS we get,
+
+2*n = len(sequence)
+
+taking log to base 2 on both sides we get,
+
+log(2*n) = log(len(sequence))
+
+further simplified to,
+
+n = log(len(sequence))
+
+where n is the number of times the function runs.
+
+Thus the running time of this function is log(len(sequence))
+
+Hence, big O notation is equal O(log n) where n is the number of items in a sequence.
+
+
+
   
