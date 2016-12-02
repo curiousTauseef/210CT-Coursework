@@ -1,7 +1,8 @@
 """
     210CT - Programming, Algorithms and Data Structures.
-    Question15.py
-    Purpose:  Implement Dijkstra’s algorithm for a weighted graph data structure.
+    Question13&14.py
+    Purpose:  Implement unweighted graph data structure with depth first search
+              and breadth first search traversals.
              
     Author : Rithin Chalumuri
     Version: 1.0 
@@ -285,37 +286,30 @@ class Graph():
         
                     
 
+if __name__ == "__main__":
     
-testg = Graph("Test Graph")
-test2 = Graph("N")
-testg.addEdge("A","B")
-testg.addEdge("A","S")
-testg.addEdge("S","C")
-testg.addEdge("S","G")
-testg.addEdge("G","F")
-testg.addEdge("G","H")
-testg.addEdge("H","E")
-testg.addEdge("E","C")
-testg.addEdge("F","C")
-testg.addEdge("C","D")
+    graph1 = Graph("Graph 1")
+    
+    graph1.addEdge("A","B")
+    graph2.addEdge("A","C")
+    graph1.addEdge("A","D")
+    graph1.addEdge("B","F")
+    graph1.addEdge("C","E")
+    graph1.addEdge("D","E")
+    graph1.addEdge("D","G")
+    graph1.addEdge("D","F")
+    graph1.addEdge("G","H")
+    graph1.addEdge("H","J")
+    graph1.addEdge("I","H")
+    graph1.addEdge("I","K")
+    graph1.addEdge("F","I")
+    
+    graph1.dfs("Z")
+    graph1.dfs("A")
+    graph1.bfs("A")
+    
+    graph1.printGraph()
+    graph1.printVertices()
+               
+    
 
-testg.dfs("I")
-testg.bfs("A")
-testg.bfs("C")
-
-
-testg.printGraph()
-testg.printVertices()
-
-test2.addEdge("A","B")
-test2.addEdge("A","D")
-test2.addEdge("A","G")
-test2.addEdge("E","B")
-test2.addEdge("E","G")
-test2.addEdge("B","F")
-test2.addEdge("F","D")
-test2.addEdge("F","C")
-test2.addEdge("C","H")
-
-test2.dfs("A")
-test2.bfs("A")
