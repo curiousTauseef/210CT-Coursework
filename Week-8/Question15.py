@@ -275,7 +275,7 @@ if __name__ == "__main__":
     graph1 = Graph("Graph 1")
     
     graph1.addEdge("A","B",3)
-    graph2.addEdge("A","C",11)
+    graph1.addEdge("A","C",11)
     graph1.addEdge("A","D",5)
     graph1.addEdge("B","F",2)
     graph1.addEdge("C","E",1)
@@ -290,7 +290,7 @@ if __name__ == "__main__":
     
     path, distance = graph1.shortest_path("A","K")
     
-    print(path,distances)
+    print(path,distance)
     
     
     
