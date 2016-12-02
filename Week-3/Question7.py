@@ -34,7 +34,7 @@ def isPrime(number):
         elif not(isinstance(number,int)): #Checking if the input is a valid int
             raise TypeError
         
-        if number < 2: #Case 1: When 'number' is less than 2, it is not a prime.
+        if number < 2: 
             return False
         
         else:
@@ -65,7 +65,7 @@ def check(number,divisor):
     if divisor == 1: #Base Case
         return True
     
-    elif (number%divisor) == 0: #If number is divisible by the divisor
+    elif (number%divisor) == 0:
         return False
     else:
         return check(number,divisor-1) #Recursive Call until divisor is 1
