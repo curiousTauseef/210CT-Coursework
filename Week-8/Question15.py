@@ -7,7 +7,11 @@ class Vertex(object):
         self.connections = []
 
     def connect(self,connection,weight):
-        self.connections.append([connection,weight])
+        if connection in self.connections:
+            pass
+        else:
+            self.connections.append([connection,weight])
+            self.connections = sorted(self.connections)
 
 class Graph():
 
@@ -77,14 +81,16 @@ class Graph():
         q = queue.PriorityQueue()
         start_weight = float("inf")
 
+        #Initialization
+
         for vertex in self.vertices:
             weight = start_weight
-            if vertex.value == start:
+            if vertex.value == startNode:
                 weight = 0
             distances[vertex.value] = weight
             previous[vertex.value] = None
 
-        q.put((0,start))
+        q.put((0,startNode))
 
         while not (q.empty()):
 
@@ -92,72 +98,41 @@ class Graph():
             currentVertex_data = currentVertex[1]
             currentVertexIndex = self.indexof(currentVertex_data)
 
+            #relaxation step
+
             for edge in self.vertices[currentVertexIndex].connections:
-                currentVertexDistance = distance[currentVertex_data] + edge[1]
+                currentVertexDistance = distances[currentVertex_data] + edge[1]
 
                 if currentVertexDistance < distances[edge[0]]:
                     distances[edge[0]] = currentVertexDistance
                     previous[edge[0]] = currentVertex_data
-                    q.put((distances[edge[0],edge[0])))
+                    q.put((distances[edge[0]],edge[0]))
 
         return distances, previous
 
-    def shortest_path
 
+    def shortest_path(self, start, end):
 
+        if not(self.contains(start)):
+            print("Error: Vertex '"+str(start)+"' does not exist in the graph '"+str(self.name)+"'. Please try again")
+            return
+        elif not(self.contains(end)):
+            print("Error: Vertex '"+str(end)+"' does not exist in the graph '"+str(self.name)+"'. Please try again")
+            return
 
-            
-def dj(graph, start, end):
-
-    distances = {}
-    previous = {}
-    q = queue.PriorityQueue()
-    
-    start_weight = float("inf")
-
-    # Initialization
-    
-    for vertex in graph.vertices:
-        weight = start_weight
-        if vertex.value == start:
-            weight = 0
-        distances[vertex.value] = weight
-        previous[vertex.value] = None
-
-    # Loops
-
-    q.put((0,start))
-
-    while not (q.empty()):
+        distances, previous = self.djikstra(start)
         
-        currentVertex = q.get()
-        currentVertex_data = currentVertex[1]
-        currentVertexIndex = graph.indexof(currentVertex_data)
+        shortestPath = []
+        final = end
 
-        for edge in graph.vertices[currentVertexIndex].connections:
-            
-            currentVertexDistance = distances[currentVertex_data] + edge[1]
+        while final is not None:
+            shortestPath.insert(0,final)
+            final = previous[final]
 
-            #relaxation
-
-            if currentVertexDistance < distances[edge[0]]:
-                distances[edge[0]] = currentVertexDistance
-                previous[edge[0]] = currentVertex_data
-                q.put((distances[edge[0]],edge[0]))
-
-
-    shortest_path = []
-    final = end
-    while final is not None:
-        shortest_path.insert(0,final)
-        final = previous[final]
-
-    return shortest_path, distances[end]
+        return shortestPath, distances[end]
+           
     
-    
-    
-
-        
+ 
 testg = Graph("random")
 
 testg.addEdge("a","b",2)
@@ -167,10 +142,8 @@ testg.addEdge("c","e",3)
 testg.addEdge("a","d",5)
 testg.addEdge("d","e",4)
 
-#testg.printGraph()
-#testg.printVertices()
 
-path1, distances1 = dj(testg,"a","e")
+path1, distances1 = testg.shortest_path("a","e")
 print(path1,distances1)
 
 test2 = Graph("lol")
@@ -186,5 +159,5 @@ test2.addEdge(4,6,4)
 test2.printGraph()
 test2.printVertices()
 
-path2, distance2 = dj(test2,1,6)
+path2, distance2 = test2.shortest_path(1,6)
 print(path2,distance2)
