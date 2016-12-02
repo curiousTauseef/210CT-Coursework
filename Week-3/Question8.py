@@ -34,10 +34,10 @@ def removeVowels(word):
         if len(word) == 0: #Base Case
             return word
     
-        elif word[0] in "AEIOUaeiou": #Checking If the first letter of word is a vowel
+        elif word[0] in "AEIOUaeiou": 
             return removeVowels(word[1:]) #Skip that letter and proceed with the rest of letters in word
         
-        else: #Else, keep the first letter and proceed until length of word becomes 0.
+        else: # keep the first letter and proceed until length of word becomes 0.
             return word[0] + removeVowels(word[1:]) 
 
     except TypeError: #If the provided input is not a string.
