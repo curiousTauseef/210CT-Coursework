@@ -1,15 +1,44 @@
+"""
+    210CT - Programming, Algorithms and Data Structures.
+    Question15.py
+    Purpose:  Implement Dijkstra’s algorithm for a weighted graph data structure.
+             
+    Author : Rithin Chalumuri
+    Version: 1.0 
+    Date   : 02/12/16
+    
+"""
+
 import queue
 
 class Vertex(object):
 
     def __init__(self, value):
+        """
+        Initialize the vertex object.
+        value is the value to be assigned this vertex.
+        connections is the list of all edges associated.
+        """
+        
         self.value = value
         self.connections = []
 
     def connect(self,connection,weight):
-        if connection in self.connections:
-            pass
+        """ 
+        Function to add a weighted edge between this vertex and another vertex.
+        Add a list [connection,weight] to connections list of this vertex.
+        
+        Parameters:
+            connection (string); the value of vertex which is to be connected
+            weight (int); the value of the weight for this edge
+        """
+        
+        if connection in self.connections: # To avoid duplicate values
+            
+            pass 
+        
         else:
+            
             self.connections.append([connection,weight])
             self.connections = sorted(self.connections)
 
