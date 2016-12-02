@@ -270,31 +270,14 @@ class Graph():
            
     
  
-testg = Graph("random")
-
-testg.addEdge("a","b",2)
-testg.addEdge("a","c",8)
-testg.addEdge("b","c",1)
-testg.addEdge("c","e",3)
-testg.addEdge("a","d",5)
-testg.addEdge("d","e",4)
-
-
-path1, distances1 = testg.shortest_path("a","e")
-print(path1,distances1)
-
-test2 = Graph("lol")
-test2.addEdge(1,2,3)
-test2.addEdge(1,4,2)
-test2.addEdge(1,3,4)
-test2.addEdge(2,5,2)
-test2.addEdge(2,3,4)
-test2.addEdge(3,5,6)
-test2.addEdge(5,4,1)
-test2.addEdge(5,6,2)
-test2.addEdge(4,6,4)
-test2.printGraph()
-test2.printVertices()
-
-path2, distance2 = test2.shortest_path(1,6)
-print(path2,distance2)
+if __name__ == "__main__":
+    
+    graph1 = Graph("Graph 1")
+    
+    graph1.addEdge("A","B",3)
+    graph2.addEdge("A","C",11)
+    graph1.addEdge("A","D",5)
+    graph1.addEdge("B","F",2)
+    graph1.addEdge("D","E",5)
+    graph1.addEdge("D","F",4)
+    
