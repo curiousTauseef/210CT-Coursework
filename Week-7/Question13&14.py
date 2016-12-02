@@ -114,13 +114,19 @@ class Graph():
     
     
 def saveTraversal(graphname,arr,traversal):
-
+    try:
+        file = open("Traversal Results.txt","r")
+        file.close()
+    except FileNotFoundError:
+        file = open("Traversal Results.txt","w")
+        file.close
+        
     if traversal == "dfs":
-        title = "Depth first search of graph '"+str(graphname) + "' :"
+        title = "Depth first search of graph '"+str(graphname) + "', Starting at vertex '"+str(arr[0])+"' :"
     else:
-        title = "Breadth first search of graph '"+str(graphname) + "' :"
+        title = "Breadth first search of graph '"+str(graphname) + "', Starting at vertex '"+str(arr[0])+"' :"
 
-    file = open("Traversal Results.txt","w")
+    file = open("Traversal Results.txt","a")
 
     resultsString = ""
     for i in range(len(arr)):
@@ -129,6 +135,7 @@ def saveTraversal(graphname,arr,traversal):
             resultsString += ", "
 
     file.write(title)
+    file.write("\n")
     file.write(resultsString)
     file.write("\n")
     file.close()
