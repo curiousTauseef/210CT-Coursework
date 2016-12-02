@@ -1,18 +1,21 @@
 class Vertex(object):
 
     def __init__(self, value):
+        
         self.value = value
+        
         self.connections = []
-
-    def value(self):
-        return self.value
 
     def connect(self,connection):
 
         if connection in self.connections:
+            
             pass
+        
         else:
+            
             self.connections.append(connection)
+            
             self.connections = sorted(self.connections)
             
 
@@ -21,34 +24,47 @@ class Graph():
     def __init__(self,name):
         
         self.vertices = []
+        
         self.name= name
 
     def addVertex(self,value):
+        
         self.vertices.append(Vertex(value))
 
     def getVertex(self, value):
+        
         return self.vertices[self.indexof(value)]
 
     def contains(self,value):
+        
         for vertex in self.vertices:
+            
             if vertex.value == value:
+                
                 return True
             
         return False
             
     def indexof(self, value):
+        
         index = 0
+        
         for vertex in self.vertices:
+            
             if vertex.value == value:
+                
                 return index
+            
             index += 1
 
     def addEdge(self,u,v):
         
         if not self.contains(u):
+            
             self.addVertex(u)
             
         if not self.contains(v):
+            
             self.addVertex(v)
         
         uIndex = self.indexof(u)
@@ -84,7 +100,6 @@ class Graph():
             print("DFS Error: Vertex '"+str(v)+"' does not exist in '"+str(self.name)+"' graph. Please try again.")
             return
             
-        
         stack = []
         visited = []
         stack.append(self.getVertex(v))
