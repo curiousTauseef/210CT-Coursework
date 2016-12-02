@@ -1,0 +1,43 @@
+========================================================================================================
+210CT - Programming, Algorithms and Data Structures
+
+Student Name: Rithin Chalumuri
+Student ID: 7030330
+
+Question 9 : Write a pseudocode for function to search a value between a given interval 
+             in a sequence using binary search algorithm.
+=========================================================================================================
+
+Input: sequence of type array, 'a' lower limit of type int and 'b' upper limit of type int
+
+RANGE-BINARY-SEARCH(sequence, a , b)
+
+	start <- 0
+	end <- sequence.length - 1
+	
+	while start <= end 
+	
+		mid <- floor((start+end)/2)
+		
+		if a <= sequence[mid] <= b
+		
+			return TRUE
+		
+		else if b < sequence[mid]
+		
+			end <- mid - 1
+			
+		else
+		
+			start <- mid + 1
+			
+	return FALSE
+
+=========================================================================================================
+
+Big O Notation = O(log n)
+
+Worst Case = O(log n) // If element is not present in sequence
+Average Case = O(log n) // If element is present somewhere in sequence
+Best Case = O(1) // If element is present in the middle of the sequence
+  
